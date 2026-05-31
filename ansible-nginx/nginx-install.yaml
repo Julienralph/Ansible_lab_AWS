@@ -1,0 +1,12 @@
+---
+- name: Simple nginx installation
+  gather_facts: yes
+  hosts: webservers
+  tasks:
+    - name: Install nginx package
+      ansible.builtin.apt:
+        update_cache: yes
+        pkg:
+          - nginx
+        state: present
+      become: true
